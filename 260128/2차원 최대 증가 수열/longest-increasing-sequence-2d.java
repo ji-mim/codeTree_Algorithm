@@ -22,20 +22,14 @@ public class Main {
         }
         dp = new int[N][M];
 
-        for (int i = 0 ; i < M ; i ++){
-            dp[0][i] = 1;
-        }
-        for (int i = 0 ; i < N ; i ++){
-            dp[i][0] = 1;
-        }
-
+        dp[0][0] = 1; 
 
 
         for (int i = 1; i < N ; i ++){
             for (int j = 1 ; j < M ; j ++){
                 for (int k = 0 ; k < i ; k ++){
                     for (int l = 0 ; l < j ; l ++){
-                        if(arr[k][l] >= arr[i][j]){
+                        if(arr[k][l] >= arr[i][j] || dp[k][l] == 0){
                             continue;
                         }
 
