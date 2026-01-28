@@ -16,7 +16,7 @@ public class Main {
         arr = new int[N][M];
 
         for (int i = 0 ; i < N ; i ++){
-            for (int j = 0 ; j < N ; j ++){
+            for (int j = 0 ; j < M ; j ++){
                 arr[i][j] = sc.nextInt();
             }
         }
@@ -25,7 +25,7 @@ public class Main {
         dp[0][0] = 1 ; 
 
         for (int i = 1; i < N ; i ++){
-            for (int j = 1 ; j < N ; j ++){
+            for (int j = 1 ; j < M ; j ++){
                 for (int k = 0 ; k < i ; k ++){
                     for (int l = 0 ; l < j ; l ++){
                         if(arr[k][l] >= arr[i][j]){
@@ -41,7 +41,7 @@ public class Main {
         int ans = 0 ;
 
         for (int i = 0 ; i < N ; i ++){
-            for (int j = 0 ; j < N ; j ++){
+            for (int j = 0 ; j < M ; j ++){
                 ans = Math.max(ans, dp[i][j]);
             }
         }
