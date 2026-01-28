@@ -37,9 +37,10 @@ public class Main {
 
         for (int i = 0 ; i < N ; i ++){
             for (int j = 0 ; j < i ; j ++){
-                if (works.get(j).y >= works.get(j).x) continue;
+                if (works.get(j).y < works.get(i).x){
+                    dp[i] = Math.max(dp[i], dp[j] + works.get(i).money);
+                }
 
-                dp[i] = Math.max(dp[i], dp[j] + works.get(i).money);
             }
         }
 
@@ -47,6 +48,7 @@ public class Main {
         for (int i = 0 ; i < N ; i ++){
             ans = Math.max(ans, dp[i]);
         }
+        // System.out.println(Arrays.toString(dp));
 
         System.out.println(ans);
         
