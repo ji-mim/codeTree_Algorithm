@@ -37,7 +37,7 @@ public class Main {
 
         for (int i = 0 ; i < N ; i ++){
             for (int j = 0 ; j < i ; j ++){
-                if (works.get(j).y > works.get(j).x) continue;
+                if (works.get(j).y >= works.get(j).x) continue;
 
                 dp[i] = Math.max(dp[i], dp[j] + works.get(i).money);
             }
