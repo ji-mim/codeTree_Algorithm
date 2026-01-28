@@ -26,7 +26,7 @@ public class Main {
 
         for(int i = 1 ; i < N ; i ++){
             for (int j = 0 ; j < i ; j ++){
-                if (num[i] < num[j]) continue;
+                if (num[i] <= num[j]) continue;
 
                 upDp[i] = Math.max(upDp[i], upDp[j] + 1);
             }
@@ -36,42 +36,17 @@ public class Main {
 
         for(int i = N - 2 ; i >= 0 ; i --){
             for (int j = N - 1  ; j > i ; j --){
-                if (num[i] < num[j]) continue;
+                if (num[i] <= num[j]) continue;
 
                 downDp[i] = Math.max(downDp[i], downDp[j] + 1);
             }
         }
         // System.out.println(Arrays.toString(downDp));
 
-        int ans = 0 ; 
-        int leftMax = 0 ;
-        int rightMax = 0 ; 
-        int leftIdx = 0 ;
-        int rightIdx = 0 ;
-        for (int i = 0 ; i < N ; i ++){
-            leftMax = 0 ;
-            rightMax = 0 ;
-            for (int j = 0 ; j <= i ; j ++){
-                if (upDp[j] > leftMax){
-                    leftMax = upDp[j];
-                    leftIdx = j;
-                }
-            }
-            for (int j = i ; j < N ; j ++){
-                if (downDp[j] > rightMax){
-                    rightMax = downDp[j];
-                    rightIdx = j;
-                }
-            }
-            int sum = leftMax + rightMax;
-            if (leftIdx == rightIdx) sum -- ; 
-            ans = Math.max(ans, sum);
+        int ans = 0;
+        for (int i = 0; i < N; i++) {
+            ans = Math.max(ans, upDp[i] + downDp[i] - 1);
         }
-
-        // ans = leftMax + rightMax; 
-        // System.out.println("leftIdx , rightIdx = "  + leftIdx + ", "+rightIdx);
-        // if (leftIdx == rightIdx) ans -- ; 
         System.out.println(ans);
-
     }
 }
