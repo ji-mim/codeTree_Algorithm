@@ -33,9 +33,18 @@ public class Main {
 
         Collections.sort(lines);
 
-        dp[0] = 1; 
+        int start = 0; 
+        for (int i = 0 ; i < N; i ++){
+            if (lines.get(i).x == lines.get(0).x){
+                dp[i] = 1;
+                start = i;
+            }else{
+                break;
+            }
+        }
 
-        for (int i = 1 ; i < N ; i ++){
+
+        for (int i = start + 1 ; i < N ; i ++){
             for (int j = 0 ; j < i ; j ++){
                 if (dp[j] == 0){
                     continue;
