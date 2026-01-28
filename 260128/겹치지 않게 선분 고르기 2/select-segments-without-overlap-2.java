@@ -33,22 +33,26 @@ public class Main {
 
         Collections.sort(lines);
 
-        int start = 0; 
-        for (int i = 0 ; i < N; i ++){
-            if (lines.get(i).x == lines.get(0).x){
-                dp[i] = 1;
-                start = i;
-            }else{
-                break;
-            }
+        // int start = 0; 
+        // for (int i = 0 ; i < N; i ++){
+        //     if (lines.get(i).x == lines.get(0).x){
+        //         dp[i] = 1;
+        //         start = i;
+        //     }else{
+        //         break;
+        //     }
+        // }
+
+        for (int i = 0 ; i < N ; i ++){
+            dp[i] = 1; 
         }
 
 
-        for (int i = start + 1 ; i < N ; i ++){
+        for (int i = 0; i < N ; i ++){
             for (int j = 0 ; j < i ; j ++){
-                if (dp[j] == 0){
-                    continue;
-                }
+                // if (dp[j] == 0){
+                    // continue;
+                // }
 
                 if(lines.get(j).y < lines.get(i).x){  // y가 x보다 작아야 함  
                     dp[i] = Math.max(dp[i], dp[j] + 1);
