@@ -41,7 +41,12 @@ public class Main {
                 }
             }
         }
-        System.out.println(dp[M]);
+
+        if (dp[M] != INT_MAX){
+            System.out.println(dp[M]);
+        } else{
+            System.out.println("-1");
+        }
 
 
     }
