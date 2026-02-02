@@ -24,7 +24,7 @@ public class Main {
             }
         }
 
-        System.out.println(dp[N]);
+        System.out.println(dp[N] % 10007);
 
 
 
